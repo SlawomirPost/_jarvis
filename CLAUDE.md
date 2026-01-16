@@ -276,6 +276,16 @@ _jarvis jest narzędziem pomocniczym dla całego portfolio projektów:
 - Integruje się z: `C:\WORK\projects\_meta-operating-system\docs\`
 - Docelowo: zarządza notatkami we WSZYSTKICH projektach
 
+### Dokumenty centralne (_meta)
+
+| Dokument | Lokalizacja | Opis |
+|----------|-------------|------|
+| **WORKFLOW_LIFECYCLE.md** | `_meta/docs/` | Cykl życia projektu: pomysł → projekt |
+| PORTFOLIO.md | `_meta/` | Lista projektów operacyjnych |
+| CLAUDE_TEMPLATE.md | `_meta/` | Szablon CLAUDE.md |
+
+> **Ścieżka względna:** `../_meta-operating-system/`
+
 ---
 
 ## 13. ŹRÓDŁA I DOKUMENTACJA
@@ -335,6 +345,7 @@ _jarvis jest narzędziem pomocniczym dla całego portfolio projektów:
 | Data       | Wersja | Opis zmiany                                           |
 |------------|--------|-------------------------------------------------------|
 | 16.01.2026 | 1.0    | Inicjalizacja projektu _jarvis                        |
+| 16.01.2026 | 1.1    | Dodanie referencji do WORKFLOW_LIFECYCLE.md           |
 
 ---
 
