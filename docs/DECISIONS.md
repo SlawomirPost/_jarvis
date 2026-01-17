@@ -57,4 +57,29 @@ Używamy MCP (Model Context Protocol) jako głównego mechanizmu integracji.
 
 ---
 
+## ADR-003: Testowe wdrożenie Highlight Report i Exception Report
+
+**Data:** 17.01.2026
+**Status:** experimental
+
+**Kontekst:**
+Szukamy dobrych praktyk z Prince2 Agile i PKM, które mogą wspierać nasz system. Highlight Report (cotygodniowy status) i Exception Report (raport przy problemach) to standardowe narzędzia Prince2.
+
+**Decyzja:**
+Wdrażamy oba mechanizmy **testowo**:
+1. **Highlight Report** — szablon w WEEKLY_REVIEW.md z kolorowym statusem 🟢🟡🔴
+2. **Exception Report** — sekcja 12 w CLAUDE_RULES.md, wpisy trafiają do JOURNAL.md
+
+**Warunki utrzymania:**
+- Jeśli po 4 tygodniach mechanizmy nie są używane lub nie przynoszą wartości → rewaluacja
+- Jeśli są zbyt formalne / uciążliwe → uproszczenie lub usunięcie
+- Decyzja o kontynuacji: wpis ADR-004
+
+**Konsekwencje:**
+- Lepszy wgląd w status projektów (Highlight)
+- Strukturalne podejście do problemów (Exception)
+- Ryzyko: overhead jeśli zbyt formalne
+
+---
+
 > **Koniec DECISIONS.md**

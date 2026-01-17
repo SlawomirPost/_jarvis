@@ -12,27 +12,33 @@
 
 ---
 
-## Szablon przeglądu
+## Szablon przeglądu (Highlight Report)
+
+> Inspiracja: Prince2 Agile — krótki raport postępu.
 
 ```markdown
-## Tydzień: DD.MM - DD.MM.YYYY
+## Tydzień [nr]/[rok] (DD.MM - DD.MM)
 
-### Co zrobione
-- [ ] ...
+### Status ogólny: 🟢 / 🟡 / 🔴
 
-### Co następne (priorytety na kolejny tydzień)
-- [ ] ...
+> 🟢 OK — wszystko w tolerancji
+> 🟡 Uwaga — drobne opóźnienia lub ryzyka
+> 🔴 Problem — wymaga interwencji (patrz Exception Report)
 
-### Blokery / Problemy
-- ...
+### Zrobione
+- @projekt: [co ukończone]
+
+### Następny tydzień
+- @projekt: [co planowane]
+
+### Blokery
+- [opis] lub "Brak"
+
+### Decyzje podjęte
+- [odnośnik do DECISIONS.md lub MEMORY.md] lub "Brak nowych"
 
 ### Wnioski / Refleksje
-- ...
-
-### Metryki (opcjonalnie)
-- Sesje z Claude: X
-- Commity: X
-- Nowe integracje: X
+- [opcjonalnie]
 ```
 
 ---

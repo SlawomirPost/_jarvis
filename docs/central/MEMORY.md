@@ -22,6 +22,9 @@
 | 17.01.2026 | Priorytet: Google Suite multi-account | 6+ kont, OAuth Hub, unified view |
 | 17.01.2026 | Multi-AI: podejście hybrydowe | Claude (główny) + GPT + Gemini + local models |
 | 17.01.2026 | MEMORY.md i WEEKLY_REVIEW.md → central/ | Spójność: wszystko współdzielone w central/ |
+| 17.01.2026 | Mechanizm Distill wdrożony | Wyciąganie esencji do KNOWLEDGE.md po sesji i na żądanie |
+| 17.01.2026 | Highlight + Exception Report (testowo) | ADR-003, rewaluacja po 4 tygodniach |
+| 17.01.2026 | Centralny RISK_REGISTER.md | Prince2 Agile, tagowanie @projekt/@ogólne |
 
 ---
 
@@ -99,3 +102,5 @@ wartości:
 | 17.01.2026 | Centralizacja: decyzja o docs/central/ i tagowaniu @projekt |
 | 17.01.2026 | Rozszerzenie wizji: Jarvis 2.0 (4 fazy), utworzenie ROADMAP.md |
 | 17.01.2026 | Przeniesienie MEMORY.md i WEEKLY_REVIEW.md do central/ |
+| 17.01.2026 | Wdrożenie mechanizmu Distill (sekcja 10 w CLAUDE_RULES.md) |
+| 17.01.2026 | Testowe wdrożenie Highlight Report i Exception Report (ADR-003) |

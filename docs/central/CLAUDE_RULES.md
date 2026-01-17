@@ -171,6 +171,7 @@ Claude wie, że centralne pliki są w `_jarvis/docs/central/`:
 | `KNOWLEDGE.md`    | Baza wiedzy            | `@projekt` lub `@ogólne` |
 | `MEMORY.md`       | Pamięć między sesjami  | —                     |
 | `WEEKLY_REVIEW.md`| Przeglądy tygodniowe   | —                     |
+| `RISK_REGISTER.md`| Rejestr ryzyk          | `@projekt` lub `@ogólne` |
 
 **Przy pracy z dowolnym projektem:**
 - TODO dodawaj do `_jarvis/docs/central/TODO.md` z tagiem `@nazwa-projektu`
@@ -179,7 +180,55 @@ Claude wie, że centralne pliki są w `_jarvis/docs/central/`:
 
 ---
 
-## 10. UWAGI AI
+## 10. DESTYLACJA WIEDZY (Distill)
+
+> Mechanizm wyciągania esencji z notatek do KNOWLEDGE.md
+
+### Kiedy destylować
+
+| Sytuacja | Akcja |
+|----------|-------|
+| Po każdej istotnej sesji | Claude proponuje destylację nowych wniosków |
+| Na żądanie użytkownika | "co wiemy o X", "podsumuj temat Y", "destyluj" |
+| Przy powtarzających się tematach | Claude zauważa wzorzec i proponuje wpis |
+
+### Jak destylować
+
+1. **Identyfikuj** — znajdź nowe wnioski w NOTES.md, JOURNAL.md, DECISIONS.md
+2. **Wyciągnij esencję** — co jest kluczowe, ponadczasowe, przydatne później
+3. **Zaproponuj wpis** — pokaż użytkownikowi przed zapisaniem
+4. **Zapisz** — po akceptacji dodaj do KNOWLEDGE.md
+
+### Format wpisu w KNOWLEDGE.md
+
+```markdown
+## [Temat]
+
+@projekt @ogólne
+
+### Co to jest
+[Krótka definicja]
+
+### Kluczowe wnioski
+- [wniosek 1]
+- [wniosek 2]
+
+### Źródła
+- Sesja DD.MM.YYYY: [kontekst]
+- [linki, dokumentacja]
+
+---
+```
+
+### Triggery (Claude reaguje automatycznie)
+
+- "co wiemy o...", "podsumuj temat...", "destyluj..."
+- "zbierz wnioski z...", "co ustaliliśmy o..."
+- Koniec istotnej sesji (decyzje, nowe ustalenia)
+
+---
+
+## 11. UWAGI AI
 
 > Claude wypełnia przy każdej odpowiedzi, jeśli dotyczy:
 
@@ -194,6 +243,64 @@ Jeśli brak uwag: pomiń sekcję.
 
 ---
 
+## 12. EXCEPTION REPORT (⚠️ testowo)
+
+> Raport tworzony TYLKO gdy jest poważny problem — bloker krytyczny, przekroczenie tolerancji.
+> Status: testowe wdrożenie (ADR-003)
+
+### Kiedy tworzyć
+
+| Sytuacja | Akcja |
+|----------|-------|
+| Bloker krytyczny | Coś uniemożliwia kontynuację pracy |
+| Przekroczenie tolerancji | Czas, zakres lub jakość znacząco odbiegają od planu |
+| Zmaterializowane ryzyko | Coś, czego się obawialiśmy, się wydarzyło |
+
+### Jak tworzyć
+
+Claude rozpoznaje sygnały:
+- "nie mogę dokończyć...", "mamy problem...", "to nie działa..."
+- "utknąłem na...", "bloker:", "exception"
+
+Claude proponuje: "Widzę bloker. Utworzyć Exception Report?"
+
+### Format (wpis w JOURNAL.md)
+
+```markdown
+## ⚠️ EXCEPTION: [nazwa problemu]
+
+@projekt
+Data: DD.MM.YYYY
+
+### Problem
+Co się stało? Co jest zablokowane?
+
+### Przyczyna
+Dlaczego to się stało?
+
+### Wpływ
+Co jest zagrożone? (czas, zakres, jakość)
+
+### Opcje
+1. [Opcja A] — konsekwencje
+2. [Opcja B] — konsekwencje
+
+### Rekomendacja
+[Którą opcję rekomenduję i dlaczego]
+
+### Decyzja
+[Do wypełnienia po decyzji użytkownika]
+
+---
+```
+
+### Triggery
+
+- Automatyczne: Claude wykrywa bloker w rozmowie
+- Ręczne: "exception report", "raport wyjątku", "mamy problem"
+
+---
+
 ## HISTORIA ZMIAN
 
 | Data | Wersja | Opis |
@@ -201,6 +308,8 @@ Jeśli brak uwag: pomiń sekcję.
 | 17.01.2026 | 1.0 | Utworzenie centralnego pliku zasad |
 | 17.01.2026 | 1.1 | Dodanie sekcji 8: pliki do wczytania na starcie (MEMORY.md) |
 | 17.01.2026 | 1.2 | Przeniesienie MEMORY.md i WEEKLY_REVIEW.md do central/ |
+| 17.01.2026 | 1.3 | Dodanie sekcji 10: Destylacja wiedzy (Distill) |
+| 17.01.2026 | 1.4 | Dodanie sekcji 12: Exception Report (testowo, ADR-003) |
 
 ---
 
