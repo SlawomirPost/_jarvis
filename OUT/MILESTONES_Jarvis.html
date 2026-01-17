@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kamienie milowe autonomii Jarvis</title>
+<style>
+body { font-family: Calibri, Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+h1 { color: #1a1a2e; border-bottom: 3px solid #4a4e69; padding-bottom: 10px; }
+h2 { color: #4a4e69; margin-top: 30px; }
+h3 { color: #22223b; }
+table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+th, td { border: 1px solid #9a8c98; padding: 10px; text-align: left; }
+th { background-color: #4a4e69; color: white; }
+tr:nth-child(even) { background-color: #f2e9e4; }
+blockquote { background: #f2e9e4; border-left: 4px solid #4a4e69; padding: 15px; margin: 20px 0; font-style: italic; }
+.highlight { background: #c9ada7; padding: 15px; border-radius: 8px; margin: 20px 0; }
+.usp { background: #22223b; color: white; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center; }
+.meta { color: #666; font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<h1>Kamienie milowe autonomii Jarvis</h1>
+
+<p class="meta"><strong>Projekt:</strong> _jarvis<br>
+<strong>Data:</strong> 17.01.2026</p>
+
+<hr>
+
+<h2>Filozofia</h2>
+
+<blockquote>
+<strong>Sprawczość słowa</strong> = rozmowa zamienia się w działający system<br><br>
+Miernik sukcesu: nie "zbudowałem workflow", ale "Kowalski dostał email"
+</blockquote>
+
+<hr>
+
+<h2>Poziomy autonomii</h2>
+
+<table>
+<tr><th>Poziom</th><th>Nazwa</th><th>Opis</th></tr>
+<tr><td>0</td><td>FOUNDATION</td><td>Jarvis zapisuje gdzie trzeba</td></tr>
+<tr><td>1</td><td>ASSISTED</td><td>Jarvis sam decyduje gdzie zapisać</td></tr>
+<tr><td>2</td><td>REACTIVE</td><td>Jarvis reaguje na trigger i wykonuje akcję</td></tr>
+<tr><td>3</td><td>PROACTIVE</td><td>Jarvis sam zauważa i proponuje</td></tr>
+<tr><td>4</td><td>AUTONOMOUS</td><td>Pełna sprawczość słowa</td></tr>
+</table>
+
+<hr>
+
+<h2>POZIOM 0: FOUNDATION</h2>
+
+<p><strong>Cel:</strong> Jarvis poprawnie zapisuje informacje w odpowiednich miejscach</p>
+
+<table>
+<tr><th>Test</th><th>Polecenie</th><th>Oczekiwany efekt</th></tr>
+<tr><td>T0.1</td><td>"Zanotuj: spotkanie z Kowalskim"</td><td>Wpis w NOTES.md</td></tr>
+<tr><td>T0.2</td><td>"Do zrobienia: wysłać fakturę"</td><td>Task w TODO.md</td></tr>
+<tr><td>T0.3</td><td>"Refleksja: dzisiaj zrozumiałem X"</td><td>Wpis w JOURNAL.md</td></tr>
+</table>
+
+<p><strong>Kryterium:</strong> 90% zadań bez korekcji użytkownika</p>
+
+<hr>
+
+<h2>POZIOM 1: ASSISTED</h2>
+
+<p><strong>Cel:</strong> Jarvis sam podejmuje decyzje kontekstowe</p>
+
+<table>
+<tr><th>Test</th><th>Polecenie</th><th>Oczekiwany efekt</th></tr>
+<tr><td>T1.1</td><td>"Zapisz to gdzieś"</td><td>Wybiera właściwy plik bez pytania</td></tr>
+<tr><td>T1.2</td><td>"Zaplanuj wdrożenie X"</td><td>Rozbija na subtaski</td></tr>
+<tr><td>T1.3</td><td>"Co powinienem dziś zrobić?"</td><td>Priorytetyzuje TODO</td></tr>
+</table>
+
+<p><strong>Kryterium:</strong> 80% decyzji zgodnych z intencją</p>
+
+<hr>
+
+<h2>POZIOM 2: REACTIVE</h2>
+
+<p><strong>Cel:</strong> Jarvis reaguje na zewnętrzne triggery</p>
+
+<table>
+<tr><th>Test</th><th>Trigger</th><th>Efekt</th></tr>
+<tr><td>T2.1</td><td>Użytkownik mówi "raport"</td><td>Plik z raportem</td></tr>
+<tr><td>T2.2</td><td>Email od X z tematem Y</td><td>Automatyczna odpowiedź</td></tr>
+<tr><td>T2.3</td><td>Webhook z n8n</td><td>Zadanie wykonane</td></tr>
+</table>
+
+<p><strong>Kryterium:</strong> Reakcja &lt; 30 sekund, 95% poprawnych wykonań</p>
+
+<hr>
+
+<h2>POZIOM 3: PROACTIVE</h2>
+
+<p><strong>Cel:</strong> Jarvis sam zauważa problemy i proponuje akcje</p>
+
+<table>
+<tr><th>Test</th><th>Sytuacja</th><th>Reakcja</th></tr>
+<tr><td>T3.1</td><td>Task ma > 7 dni</td><td>"Task X ma 7 dni — zamknąć?"</td></tr>
+<tr><td>T3.2</td><td>Podobny wpis istnieje</td><td>"Połączyć?"</td></tr>
+<tr><td>T3.3</td><td>Minął tydzień</td><td>"Czas na przegląd?"</td></tr>
+</table>
+
+<p><strong>Kryterium:</strong> 70% trafnych sugestii</p>
+
+<hr>
+
+<h2>POZIOM 4: AUTONOMOUS — Sprawczość słowa</h2>
+
+<p><strong>Cel:</strong> Rozmowa → działający system</p>
+
+<table>
+<tr><th>Test</th><th>Polecenie użytkownika</th><th>Efekt w świecie</th></tr>
+<tr><td>T4.1</td><td>"Od teraz Kowalski dostaje kody rabatowe"</td><td>Kowalski dostaje kody</td></tr>
+<tr><td>T4.2</td><td>"Informuj mnie codziennie o zaległych taskach"</td><td>Email przychodzi</td></tr>
+<tr><td>T4.3</td><td>"Przestań"</td><td>Przestaje</td></tr>
+</table>
+
+<p><strong>Kryterium:</strong> Efekt w realnym świecie. Użytkownik nie konfiguruje niczego.</p>
+
+<hr>
+
+<h2>Model wdrożenia</h2>
+
+<div class="highlight">
+<ol>
+<li><strong>Najpierw działa</strong> — "w sobie", nawet jeśli suboptymalne</li>
+<li><strong>Potem optymalizacja</strong> — przeniesienie do n8n (opcjonalne)</li>
+</ol>
+</div>
+
+<hr>
+
+<div class="usp">
+<h2 style="color: white; margin-top: 0;">USP Jarvisa</h2>
+<p style="font-size: 1.1em;">Nie konkurujemy z n8n, Zapier, Make.<br>
+Konkurujemy z "muszę to skonfigurować sam".</p>
+<p style="font-size: 1.3em; font-weight: bold;">Jarvis = konwersacja zamienia się w działający system.</p>
+</div>
+
+<hr>
+
+<p class="meta" style="text-align: center;"><em>Dokument utworzony: 17.01.2026</em></p>
+
+</body>
+</html>

@@ -106,6 +106,59 @@ Format: `SKILL.md` z YAML metadata + instrukcje Markdown.
 
 ---
 
+## @_jarvis — Infrastruktura projektów (destylacja 17.01.2026)
+
+> Źródło: `docs/research/ANALYSIS_INFRASTRUCTURE_2026-01-17.md`
+
+### Wartość projektów narzędziowych
+
+| Projekt | Wartość | Rola |
+|---------|---------|------|
+| **_jarvis** | KRYTYCZNA | Mózg systemu — metodologia, wiedza, pamięć |
+| **_lab** | WYSOKA | Inkubator pomysłów (Stage-Gate) |
+| **_meta** | NISKA | Po centralizacji zostało: CLAUDE_TEMPLATE + CONCEPT/ |
+| **_tools-and-lab** | ŚREDNIA | Kandydat do rename → _toolbox |
+| **_doc-assistant** | NISKA-ŚREDNIA | Kandydat do wchłonięcia jako skill |
+
+### Luki w pokryciu obszarów życia
+
+| Obszar | Pokrycie | Status |
+|--------|----------|--------|
+| Praca/Projekty | 90% | ✅ OK |
+| Finanse biznesowe | 70% | W planach |
+| **Zdrowie** | **0%** | ⚠️ KRYTYCZNE (Mama) |
+| **Kalendarz** | **0%** | Faza 2 Jarvis |
+| **CRM/Kontakty** | **5%** | Brakuje modułu |
+| Google Drive | 5% | 3TB chaosu |
+| Trading | 10% | Tylko pomysł |
+
+### Rekomendowany model: Modułowy (Wariant C)
+
+```
+_jarvis/           ← CENTRUM OPERACYJNE
+├── docs/central/  ← metodologia, rejestry
+├── modules/       ← funkcjonalne moduły
+└── skills/        ← Claude Code skills
+
+_lab/              ← INKUBATOR (bez zmian)
+├── ideas/
+└── workspace/
+```
+
+---
+
+## @_jarvis — Trójwarstwowy model wiedzy
+
+> Ustalono: 17.01.2026
+
+| Warstwa | Plik | Cel | Format |
+|---------|------|-----|--------|
+| **1. Quick Reference** | `KNOWLEDGE.md` | Tipy, ustawienia, szybki lookup | Tabele, sekcje |
+| **2. Deep Knowledge** | `ZETTELKASTEN/` | Atomowe notatki z confidence | Zettele 202601-XXX |
+| **3. Meta/Graf** | `ZETTELKASTEN/KNOWLEDGE_GRAPH.md` | Powiązania, clusters | YAML edges |
+
+---
+
 ## @_jarvis — Specyficzne
 
 ### Architektura centralizacji
@@ -115,12 +168,17 @@ _jarvis/docs/
 ├── central/
 │   ├── CLAUDE_RULES.md   ← uniwersalne zasady
 │   ├── GIT_STRATEGY.md   ← strategie git
-│   └── STYLE_GUIDE.md    ← formatowanie
+│   ├── STYLE_GUIDE.md    ← formatowanie
+│   ├── ZETTELKASTEN/     ← głęboka wiedza (atomowe notatki)
+│   │   ├── _INDEX.md
+│   │   ├── KNOWLEDGE_GRAPH.md  ← graf powiązań
+│   │   └── 202601-*.md
+│   └── PITFALLS/         ← pułapki narzędzi (prewencja)
 │
 ├── TODO.md       ← centralne z @projekt
 ├── NOTES.md      ← centralne z @projekt
 ├── JOURNAL.md    ← centralne z @projekt
-├── KNOWLEDGE.md  ← centralne z @projekt
+├── KNOWLEDGE.md  ← quick reference z @projekt
 ├── MEMORY.md     ← pamięć między sesjami
 └── WEEKLY_REVIEW.md
 ```

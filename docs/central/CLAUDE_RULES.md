@@ -168,16 +168,30 @@ Claude wie, że centralne pliki są w `_jarvis/docs/central/`:
 | `TODO.md`         | Lista zadań            | `@projekt`            |
 | `NOTES.md`        | Notatki                | `@projekt`            |
 | `JOURNAL.md`      | Dziennik               | `@projekt`            |
-| `KNOWLEDGE.md`    | Baza wiedzy            | `@projekt` lub `@ogólne` |
+| `KNOWLEDGE.md`    | Quick Reference (tipy, ustawienia) | `@projekt` lub `@ogólne` |
 | `MEMORY.md`       | Pamięć między sesjami  | —                     |
 | `WEEKLY_REVIEW.md`| Przeglądy tygodniowe   | —                     |
 | `RISK_REGISTER.md`| Rejestr ryzyk          | `@projekt` lub `@ogólne` |
 | `BEST_PRACTICES.md`| Katalog dobrych praktyk | `@best-practice` + domena |
+| `JARVIS_MANIFEST.md` | Źródło prawdy o strukturze | — |
+| `ZETTELKASTEN/`   | Głęboka wiedza (atomowe notatki) | ID: 202601-XXX |
+| `PITFALLS/`       | Pułapki narzędzi (prewencja) | Wg narzędzia |
+
+### Trójwarstwowy model wiedzy
+
+> Ustalono: 17.01.2026
+
+| Warstwa | Plik | Cel | Kiedy używać |
+|---------|------|-----|--------------|
+| **1. Quick Reference** | `KNOWLEDGE.md` | Tipy, ustawienia, lookup | "Jak to było skonfigurowane?" |
+| **2. Deep Knowledge** | `ZETTELKASTEN/` | Atomowe notatki z confidence | "Co wiem głęboko o X?" |
+| **3. Meta/Graf** | `ZETTELKASTEN/KNOWLEDGE_GRAPH.md` | Powiązania, clusters | Nawigacja między zettlami |
 
 **Przy pracy z dowolnym projektem:**
 - TODO dodawaj do `_jarvis/docs/central/TODO.md` z tagiem `@nazwa-projektu`
 - Notatki do `_jarvis/docs/central/NOTES.md` z tagiem `@nazwa-projektu`
 - Dziennik do `_jarvis/docs/central/JOURNAL.md` z tagiem `@nazwa-projektu`
+- Głębokie wnioski do `_jarvis/docs/central/ZETTELKASTEN/` jako nowy zettel
 
 ---
 

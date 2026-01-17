@@ -1,4 +1,4 @@
-# ROADMAP.md — _jarvis 2.0
+# ROADMAP.md — Jarvis 2.0
 
 > **Data utworzenia:** 17.01.2026
 > **Ostatnia aktualizacja:** 17.01.2026
@@ -6,15 +6,38 @@
 
 ---
 
-## WIZJA
+## KIERUNEK: CONVERSATIONAL AGENCY
 
-Jarvis 2.0 to autonomiczny asystent AI z:
-- Integracją z 6+ kontami Google
-- Hybrydowym dostępem do wielu modeli AI
-- Komunikacją głosową
-- Bazą wiedzy (RAG, transkrypcje, life stories)
-- Zdolnością do samodzielnej realizacji projektów
-- Zdolnością do budowania siebie (Jarvis buduje Jarvisa 2.0)
+> **Jarvis = sprawczość słowa**
+> Mówisz → dzieje się. Bez konfiguracji, bez "zbuduj mi workflow".
+
+### Filozofia
+
+```
+UŻYTKOWNIK: "Od teraz Kowalski dostaje kody rabatowe"
+
+SUKCES ≠ "Zbudowałem workflow w n8n"
+SUKCES = Kowalski dostaje kody. Kropka.
+```
+
+### Mierniki sukcesu
+
+| Test | Zdany gdy |
+|------|-----------|
+| "Zanotuj X" | X jest zapisane |
+| "Od teraz informuj mnie o Y" | Dostajesz informacje o Y |
+| "Sprawdź maile o Z" | Masz odpowiedź |
+| "Przestań" | Przestaje |
+
+### Model wdrożenia
+
+1. **"W sobie"** — najpierw działa (nawet jeśli nieoptymalne)
+2. **Optymalizacja** — przeniesienie do n8n/innego narzędzia (opcjonalne)
+
+### USP
+
+Nie konkurujemy z n8n, Zapier, Make.
+Konkurujemy z **"muszę to skonfigurować sam"**.
 
 ---
 
@@ -28,17 +51,14 @@ Jarvis 2.0 to autonomiczny asystent AI z:
 │  Q1 2026                    Q1-Q2 2026              Q2 2026          Q3+ 2026  │
 │  ════════                   ══════════              ════════         ═════════  │
 │                                                                                 │
-│  FAZA 1: MVP               FAZA 2: GOOGLE+         FAZA 3: BRAIN    FAZA 4: AI │
-│  ──────────                ───────────────         ────────────     ──────────  │
+│  FAZA 1: FUNDAMENT         FAZA 2: ZASIĘG          FAZA 3: MÓZG     FAZA 4:    │
+│  ─────────────────         ──────────────          ──────────       AUTONOMIA  │
+│                                                                     ──────────  │
+│  Mówię → zapisuje          Mówię z telefonu        Mówię głosem     Mówię raz  │
+│  Mówię → robi TODO         Mówię → sprawdza mail   Pyta mnie RAG    → działa   │
+│  Pamięta kontekst          Mówię → kalendarz       Zna moje życie   zawsze     │
+│                            Zarządza 6+ kontami                                  │
 │                                                                                 │
-│  ☐ MCP notes/todo          ☐ Google OAuth Hub      ☐ Voice I/O      ☐ Multi-AI │
-│  ☐ Centralne pliki         ☐ Gmail (6+ kont)       ☐ RAG/Vector     ☐ Auto-proj│
-│  ☐ Skill /j                ☐ Calendar multi        ☐ YT transcribe  ☐ Self-build│
-│  ☐ Memory system           ☐ Drive integration     ☐ Knowledge base ☐ Jarvis2.0│
-│  ☐ Dobre praktyki          ☐ n8n workflows         ☐ Life stories              │
-│                            ☐ Account manager                                    │
-│                                                                                 │
-│  ~2 tyg                    ~4-6 tyg                ~4-6 tyg         ongoing     │
 │  Koszt: $0                 Koszt: ~$20-50          Koszt: ~$80-150  Koszt: $150+│
 │                                                                                 │
 └─────────────────────────────────────────────────────────────────────────────────┘
@@ -46,187 +66,196 @@ Jarvis 2.0 to autonomiczny asystent AI z:
 
 ---
 
-## FAZA 1: MVP (teraz → +2 tyg)
+## FAZA 1: FUNDAMENT
 
-**Cel:** Działający fundament z dobrymi praktykami
+> **Cel:** Mogę mówić do Jarvisa i rzeczy się dzieją (lokalnie, bez kosztów)
 
-| Zadanie | Opis | Status | Priorytet |
-|---------|------|--------|-----------|
-| MCP jarvis-notes | CRUD na JOURNAL.md, NOTES.md, KNOWLEDGE.md | ⬜ | P0 |
-| MCP jarvis-todo | Zarządzanie TODO.md z tagami @projekt | ⬜ | P0 |
-| Skill `/j` | Szybki dostęp z dowolnego projektu | ⬜ | P1 |
-| Memory system | MEMORY.md + auto-uzupełnianie | ✅ | P0 |
-| Dobre praktyki | Szablony, konwencje, CLAUDE_RULES | ✅ | P0 |
-| Dokumentacja | Kompletna dokumentacja użycia | ⬜ | P2 |
+### Sprawczość słowa — Faza 1
+
+| Mówię | Dzieje się |
+|-------|------------|
+| "Zanotuj: pomysł na X" | → Jest w NOTES.md z tagiem @projekt |
+| "Do zrobienia: Y" | → Jest w TODO.md |
+| "Co wiesz o Z?" | → Przeszukuje KNOWLEDGE.md, odpowiada |
+| "Refleksja: ..." | → Jest w JOURNAL.md |
+
+### Co to wymaga (techniczne)
+
+| Komponent | Status | Po co |
+|-----------|--------|-------|
+| Centralne pliki + tagowanie | ✅ | Jedno miejsce na wszystko |
+| Memory system (MEMORY.md) | ✅ | Pamięć między sesjami |
+| Dobre praktyki (CLAUDE_RULES) | ✅ | Spójne zachowanie |
+| MCP jarvis-notes | ⬜ | CRUD na markdown |
+| MCP jarvis-todo | ⬜ | Zarządzanie TODO |
+| Skill `/j` | ⬜ | Szybki dostęp z każdego projektu |
 
 ### Definition of Done (Faza 1)
 
-- [ ] MCP działa lokalnie z Claude Code
-- [ ] "zanotuj: ..." → trafia do NOTES.md z tagiem @projekt
-- [ ] "do zrobienia: ..." → trafia do TODO.md z tagiem @projekt
-- [ ] "co wiemy o X?" → przeszukuje KNOWLEDGE.md
-- [ ] Skill `/j` dostępny globalnie
+- [ ] Mówię "zanotuj X" → X jest w NOTES.md
+- [ ] Mówię "do zrobienia Y" → Y jest w TODO.md
+- [ ] Mówię "co wiesz o Z" → dostaje odpowiedź z KNOWLEDGE.md
+- [ ] Działa z każdego projektu (skill globalny)
 - [ ] Zero kosztów, wszystko lokalne
 
 ---
 
-## FAZA 2: GOOGLE+ (→ +6 tyg od startu)
+## FAZA 2: ZASIĘG
 
-**Cel:** Pełna integracja z 6+ kontami Google
+> **Cel:** Mogę mówić do Jarvisa z telefonu i zarządzać wszystkimi kontami
 
-### Architektura
+### Sprawczość słowa — Faza 2
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                 GOOGLE MULTI-ACCOUNT HUB                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌──────────────┐                                           │
-│  │ Account      │  konto1@gmail.com (prywatne)             │
-│  │ Manager      │  konto2@firma1.pl (Firma 1)              │
-│  │              │  konto3@firma2.pl (Firma 2)              │
-│  │ OAuth Hub    │  konto4@projekt.pl (Projekt X)           │
-│  │ Token Vault  │  ...                                      │
-│  └──────┬───────┘                                           │
-│         │                                                   │
-│  ┌──────┴───────────────────────────────────────────────┐  │
-│  │                    USŁUGI                             │  │
-│  │  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐        │  │
-│  │  │ Gmail  │ │Calendar│ │ Drive  │ │ Tasks  │        │  │
-│  │  └────────┘ └────────┘ └────────┘ └────────┘        │  │
-│  └───────────────────────────────────────────────────────┘  │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+| Mówię | Dzieje się |
+|-------|------------|
+| "Sprawdź maile od Kowalskiego" | → Przeszukuje Gmail, odpowiada |
+| "Co mam dziś w kalendarzu?" | → Unified view ze wszystkich kont |
+| "Znajdź fakturę X na Drive" | → Szuka, podaje link |
+| "Od teraz Y dostaje kody rabatowe" | → Ustawia automatyzację |
+| (z telefonu) "Zanotuj..." | → Działa jak z desktopa |
 
-### Komponenty
+### Co to wymaga (techniczne)
 
-| Komponent | Funkcje | Priorytet |
-|-----------|---------|-----------|
-| **Account Manager** | Dodawanie/usuwanie kont, przełączanie kontekstu | P0 |
-| **OAuth Hub** | Centralne zarządzanie tokenami, auto-refresh | P0 |
-| **Gmail** | Szukaj, czytaj, wysyłaj, labele, filtry | P0 |
-| **Calendar** | CRUD wydarzeń, widok unified ze wszystkich kont | P1 |
-| **Drive** | Szukaj pliki, pobieraj, uploaduj | P1 |
-| **Tasks** | Sync z TODO.md | P2 |
-| **Contacts** | Wyszukiwanie, zarządzanie | P2 |
-
-### n8n Advanced
-
-| Funkcja | Opis | Priorytet |
-|---------|------|-----------|
-| Auto-create workflows | Jarvis tworzy workflow z opisu słownego | P1 |
-| Template library | Baza gotowych wzorców workflow | P2 |
-| Project scaffolding | Automatyczne tworzenie struktury projektu | P2 |
+| Komponent | Po co |
+|-----------|-------|
+| **Telegram Bot** | Mobilny dostęp 24/7 — kluczowy enabler |
+| Google OAuth Hub | Jeden login do 6+ kont |
+| Gmail integration | Szukaj, czytaj, wysyłaj |
+| Calendar integration | CRUD wydarzeń, unified view |
+| Drive integration | Szukaj pliki, pobieraj |
+| n8n workflows | Automatyzacje "od teraz X" |
 
 ### Definition of Done (Faza 2)
 
-- [ ] Można dodać/usunąć konto Google jedną komendą
-- [ ] "Sprawdź maile od X na koncie Y" działa
-- [ ] "Co mam dziś w kalendarzu?" pokazuje unified view
-- [ ] "Znajdź plik X" przeszukuje Drive wszystkich kont
-- [ ] "Stwórz workflow do X" generuje n8n workflow
+- [ ] Z Telegrama mówię "zanotuj X" → działa
+- [ ] Mówię "sprawdź maile od Y" → mam odpowiedź
+- [ ] Mówię "co mam dziś?" → kalendarz ze wszystkich kont
+- [ ] Mówię "od teraz Z" → automatyzacja działa
+- [ ] Zarządzam 6+ kontami Google jednym interfejsem
 
 ---
 
-## FAZA 3: BRAIN (→ +12 tyg od startu)
+## FAZA 3: MÓZG
 
-**Cel:** Inteligentna baza wiedzy + komunikacja głosowa
+> **Cel:** Jarvis zna kontekst mojego życia i odpowiada głosem
 
-### Voice I/O
+### Sprawczość słowa — Faza 3
 
-| Kierunek | Technologia | Opis |
-|----------|-------------|------|
-| Voice → Text | Whisper (local/API) | Transkrypcja mowy |
-| Text → Voice | ElevenLabs / Azure TTS | Synteza mowy |
-| Real-time | WebRTC + streaming | Rozmowa na żywo |
+| Mówię (głosem) | Dzieje się |
+|----------------|------------|
+| "Co mówił X w wywiadzie o Y?" | → Odpowiedź z transkrypcji YT |
+| "Przypomnij mi kontekst projektu Z" | → RAG na dokumentach |
+| "Opowiedz mi o historii firmy W" | → Life stories |
+| (głosem, bez rąk) | → Pełna rozmowa |
 
-### Baza wiedzy (RAG)
+### Co to wymaga (techniczne)
 
-| Źródło | Metoda | Priorytet |
-|--------|--------|-----------|
-| YouTube interviews | Whisper → chunking → embeddings | P0 |
-| Dokumenty GDrive | RAG na plikach | P1 |
-| Rozmowy z Jarvisem | Auto-zapisywanie kontekstu | P1 |
-| Life stories | Strukturyzowane biografie | P2 |
-
-### Technologia
-
-| Komponent | Opcje |
+| Komponent | Po co |
 |-----------|-------|
-| Vector DB | ChromaDB (local) → Pinecone (scale) |
-| Embeddings | OpenAI ada-002 / local |
-| RAG Framework | LangChain |
-| Chunking | Semantic chunking |
+| Voice I/O (Whisper + TTS) | Rozmowa głosowa |
+| RAG na dokumentach | Kontekstowa wiedza |
+| Vector DB (Chroma → Pinecone) | Embeddings |
+| YT transcription | Wiedza z wywiadów |
+| Life stories | Strukturyzowane biografie |
 
 ### Definition of Done (Faza 3)
 
-- [ ] Można rozmawiać z Jarvisem głosowo
-- [ ] "Co mówił X w wywiadzie o Y?" zwraca odpowiedź z transkrypcji
-- [ ] Baza wiedzy zawiera >100 dokumentów
-- [ ] Jarvis pamięta kontekst rozmów
+- [ ] Mogę rozmawiać z Jarvisem głosowo
+- [ ] Mówię "co mówił X o Y" → odpowiedź z transkrypcji
+- [ ] Jarvis zna kontekst >100 dokumentów
+- [ ] Pamięta historię rozmów
 
 ---
 
-## FAZA 4: AUTONOMOUS AI (Q3+ 2026)
+## FAZA 4: AUTONOMIA
 
-**Cel:** Jarvis jako autonomiczny agent budujący siebie
+> **Cel:** Mówię raz — Jarvis realizuje sam, bez nadzoru
 
-### Multi-AI Hybrid
+### Sprawczość słowa — Faza 4
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    MULTI-AI ROUTER                          │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ZADANIE → ROUTER → WYBÓR MODELU                           │
-│                                                             │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
-│  │ Claude   │  │ GPT-4    │  │ Gemini   │  │ Ollama   │   │
-│  │ (API)    │  │ (API)    │  │ (API)    │  │ (local)  │   │
-│  ├──────────┤  ├──────────┤  ├──────────┤  ├──────────┤   │
-│  │ Główny   │  │ Kod      │  │ Długi    │  │ Prywatne │   │
-│  │ asystent │  │ generation│  │ kontekst │  │ dane     │   │
-│  │ reasoning│  │ debugging │  │ analiza  │  │ offline  │   │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+| Mówię | Dzieje się |
+|-------|------------|
+| "Zbuduj projekt X" | → Od CONCEPT do działającego kodu |
+| "Zoptymalizuj Y" | → Analizuje, proponuje, wdraża |
+| "Ulepsz siebie" | → Self-improvement |
 
 ### Poziomy autonomii
+
+```
+Human-in-the-loop → Human-on-the-loop → Human-out-of-loop
+     (Faza 1-2)           (Faza 3)            (Faza 4)
+```
 
 | Poziom | Nazwa | Opis |
 |--------|-------|------|
 | L1 | Executor | Wykonuje polecenia krok po kroku |
-| L2 | Planner | Samodzielnie planuje, pyta o zatwierdzenie |
+| L2 | Planner | Planuje sam, pyta o zatwierdzenie |
 | L3 | Builder | Realizuje projekty end-to-end |
 | L4 | Self-improver | Jarvis buduje Jarvisa 2.0 |
 
-### Funkcje autonomiczne
+### Co to wymaga (techniczne)
 
-| Funkcja | Opis |
-|---------|------|
-| **Auto-projekty** | Od koncepcji przez plan do realizacji |
-| **Auto-testy** | Generowanie i wykonywanie testów |
-| **Self-analysis** | Analiza własnych błędów |
-| **Self-improvement** | Propozycje ulepszeń własnego kodu |
-| **Jarvis 2.0** | Projektowanie następnej wersji |
+| Komponent | Po co |
+|-----------|-------|
+| Multi-AI Router | Optymalny model do zadania |
+| Auto-projekty | Od koncepcji do kodu |
+| Self-analysis | Analiza własnych błędów |
+| Self-improvement | Propozycje ulepszeń |
 
 ### Definition of Done (Faza 4)
 
-- [ ] Jarvis może wybrać optymalny model AI do zadania
-- [ ] "Zbuduj projekt X" działa end-to-end
+- [ ] Mówię "zbuduj projekt X" → działa end-to-end
+- [ ] Jarvis wybiera optymalny model AI
 - [ ] Jarvis proponuje ulepszenia własnego kodu
 - [ ] Istnieje CONCEPT dla Jarvisa 2.0 napisany przez Jarvisa
 
 ---
 
+## ŚCIEŻKA OPCJONALNA: TRYBY DOSTĘPU
+
+> **Status:** Pomysł — może być zrealizowany równolegle z dowolną fazą
+> **Szczegóły:** [CONCEPT.md — sekcja 7.1](CONCEPT.md#71-tryby-dostępu-opcjonalne)
+
+### Dlaczego opcjonalna?
+
+To nie jest wymagane do działania Jarvisa, ale rozwiązuje realne problemy:
+1. Chcę pokazać Jarvisa rodzinie (córka, syn) bez ryzyka
+2. Zadania cykliczne na Opus są drogie
+3. "Wszystko albo nic" to zły model bezpieczeństwa
+
+### Propozycja trybów
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  FULL (Owner)          DEMO (Guest)           LITE (Agent)      │
+│  ────────────          ────────────           ────────────      │
+│  • Pełny dostęp        • Pokaz możliwości     • Zadania cykliczne│
+│  • Opus                • 2-3 poziomy          • Haiku/Sonnet     │
+│  • Edycja systemu      • Bez core docs        • Harmonogramy     │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Kiedy ma sens wdrożyć?
+
+| Trigger | Reakcja |
+|---------|---------|
+| Chcę pokazać komuś Jarvisa | → Wdrożyć tryb DEMO |
+| Mam powtarzalne zadanie (email, raporty) | → Wdrożyć tryb LITE |
+| Koszty API rosną | → Wdrożyć LITE z Haiku |
+
+### Szacowany nakład
+
+- DEMO: ~2-4h (osobne profile, okrojone CLAUDE.md)
+- LITE: ~4-8h (integracja z n8n/cron, testy z Haiku)
+
+---
+
 ## SZACOWANE KOSZTY
 
-| Faza | Koszty miesięczne | Główne pozycje |
-|------|-------------------|----------------|
+| Faza | Koszt/mies | Główne pozycje |
+|------|------------|----------------|
 | Faza 1 | $0 | Local-first |
-| Faza 2 | $20-50 | Hosting, n8n |
+| Faza 2 | $20-50 | Hosting, Telegram, n8n |
 | Faza 3 | $80-150 | Voice API, Vector DB, embeddings |
 | Faza 4 | $150+ | Multi-AI API, compute |
 
@@ -234,19 +263,21 @@ Jarvis 2.0 to autonomiczny asystent AI z:
 
 ## RYZYKA
 
-| Ryzyko | Prawdop. | Wpływ | Mitigacja |
-|--------|----------|-------|-----------|
-| Overengineering | Wysokie | Wysoki | Strict MVP, fazy |
-| Koszty API | Średnie | Wysoki | Caching, local models, routing |
-| Złożoność Google OAuth | Średnie | Średni | Dobre abstrakcie, token vault |
-| Hallucynacje LLM | Wysokie | Średni | RAG, fact-checking |
-| Vendor lock-in | Średnie | Średni | Abstrakcja warstwy AI |
+| Ryzyko | Mitigacja |
+|--------|-----------|
+| Overengineering | Strict MVP, fazy, mierniki sprawczości |
+| Koszty API | Caching, local models, routing |
+| Złożoność Google OAuth | Dobre abstrakcje, token vault |
+| Hallucynacje LLM | RAG, fact-checking |
+| Vendor lock-in | Abstrakcja warstwy AI |
 
 ---
 
 ## NASTĘPNY KROK
 
 **→ Faza 1: Implementacja MCP jarvis-notes**
+
+Test sprawczości: "zanotuj: pierwszy test Jarvisa" → jest w NOTES.md
 
 ---
 
@@ -255,6 +286,8 @@ Jarvis 2.0 to autonomiczny asystent AI z:
 | Data | Wersja | Opis |
 |------|--------|------|
 | 17.01.2026 | 1.0 | Utworzenie roadmapy z 4 fazami |
+| 17.01.2026 | 2.0 | Przebudowa pod CONVERSATIONAL AGENCY — sprawczość słowa |
+| 17.01.2026 | 2.1 | Dodanie ŚCIEŻKI OPCJONALNEJ: Tryby dostępu (FULL/DEMO/LITE) |
 
 ---
 

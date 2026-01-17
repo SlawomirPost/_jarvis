@@ -61,149 +61,24 @@ Przykłady:
 
 Pełna koncepcja to ~36h pracy i $50-80/mies. Potrzebujemy czegoś użytecznego TERAZ.
 
-### Fazy rozwoju (oryginalne 3 fazy)
+### Roadmapa: 4 fazy
+
+> **Pełna roadmapa:** [ROADMAP.md](ROADMAP.md)
+> **Kierunek:** CONVERSATIONAL AGENCY — sprawczość słowa
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         ARCHITEKTURA FAZOWA (v1)                        │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│  FAZA 1: LITE (MVP)      FAZA 2: CORE           FAZA 3: FULL           │
-│  ─────────────────       ──────────             ──────────              │
-│  □ MCP jarvis-notes      □ Telegram Bot         □ RAG na GDrive        │
-│  □ MCP jarvis-todo       □ Google Calendar      □ Vector DB            │
-│  □ Integracja _meta      □ Gmail search         □ Voice (Whisper)      │
-│  □ Local-first           □ PostgreSQL           □ Multi-model routing  │
-│  □ Zero kosztów          □ ~$20/mies            □ ~$80/mies            │
-│                                                                         │
-│  TERAZ                   ~2 tyg                 ~1 mies                 │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
+FAZA 1: FUNDAMENT    → Mówię → zapisuje (local, $0)
+FAZA 2: ZASIĘG       → Mówię z telefonu, zarządzam 6+ kontami ($20-50)
+FAZA 3: MÓZG         → Mówię głosem, RAG, zna moje życie ($80-150)
+FAZA 4: AUTONOMIA    → Mówię raz → działa zawsze ($150+)
 ```
 
-### Rozszerzona wizja: Jarvis 2.0 (4 fazy)
-
-> **Dodano:** 17.01.2026
-> **Szczegóły:** [docs/ROADMAP.md](ROADMAP.md)
+### Ewolucja autonomii
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────────┐
-│                              JARVIS 2.0 ROADMAP                                 │
-├─────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                 │
-│  FAZA 1: MVP               FAZA 2: GOOGLE+         FAZA 3: BRAIN    FAZA 4: AI │
-│  ──────────                ───────────────         ────────────     ──────────  │
-│                                                                                 │
-│  ☐ MCP notes/todo          ☐ Google OAuth Hub      ☐ Voice I/O      ☐ Multi-AI │
-│  ☐ Centralne pliki         ☐ Gmail (6+ kont)       ☐ RAG/Vector     ☐ Auto-proj│
-│  ☐ Skill /j                ☐ Calendar multi        ☐ YT transcribe  ☐ Self-build│
-│  ☐ Memory system           ☐ Drive integration     ☐ Knowledge base ☐ Jarvis2.0│
-│  ☐ Dobre praktyki          ☐ n8n workflows         ☐ Life stories              │
-│                            ☐ Account manager                                    │
-│                                                                                 │
-│  ~2 tyg                    ~4-6 tyg                ~4-6 tyg         ongoing     │
-│  Koszt: $0                 Koszt: ~$20-50          Koszt: ~$80-150  Koszt: $150+│
-│                                                                                 │
-└─────────────────────────────────────────────────────────────────────────────────┘
+Human-in-the-loop → Human-on-the-loop → Human-out-of-loop
+     (Faza 1-2)           (Faza 3)            (Faza 4)
 ```
-
-**Kluczowe rozszerzenia względem v1:**
-
-| Obszar | Oryginalna wizja | Jarvis 2.0 |
-|--------|------------------|------------|
-| Google | 1 konto | 6+ kont, multi-account hub |
-| AI | Tylko Claude | Hybrydowe: Claude + GPT + Gemini + local |
-| Voice | Opcjonalne | Pełna komunikacja głosowa |
-| Baza wiedzy | RAG na dokumentach | + transkrypcje YT, life stories |
-| Autonomia | Wykonawca poleceń | Samodzielna realizacja projektów |
-| Self-improvement | Brak | Jarvis buduje Jarvisa 2.0 |
-
----
-
-## 4. FAZA 1: LITE (MVP)
-
-### Zakres
-
-| Komponent           | Opis                                          | Priorytet |
-|---------------------|-----------------------------------------------|-----------|
-| **MCP jarvis-notes**| CRUD na JOURNAL.md, NOTES.md, KNOWLEDGE.md    | P0        |
-| **MCP jarvis-todo** | Zarządzanie TODO.md w projektach              | P0        |
-| **Skill /j**        | Szybki dostęp z Claude Code                   | P1        |
-| **Integracja _meta**| Czytanie/pisanie docs/ w _meta                | P1        |
-
-### Definition of Done (MVP)
-
-- [ ] MCP działa lokalnie z Claude Code
-- [ ] "zanotuj: ..." → trafia do odpowiedniego pliku
-- [ ] "do zrobienia: ..." → trafia do TODO.md
-- [ ] "co wiemy o X?" → przeszukuje KNOWLEDGE.md
-- [ ] Nie wymaga zewnętrznych serwisów (local-first)
-- [ ] Dokumentacja użycia kompletna
-
-### Technologia Fazy 1
-
-| Komponent     | Technologia           | Uzasadnienie                    |
-|---------------|-----------------------|---------------------------------|
-| MCP Server    | Node.js + TypeScript  | Natywne dla Claude Code         |
-| Storage       | Markdown files        | Zero setup, human-readable      |
-| Komunikacja   | stdio (MCP protocol)  | Standardowy protokół Anthropic  |
-
-### Czego NIE MA w Fazie 1
-
-- Telegram bot
-- Kalendarz Google
-- Email
-- RAG / Vector DB
-- Voice interface
-- Zewnętrzne bazy danych
-
----
-
-## 5. FAZA 2: CORE
-
-### Zakres
-
-| Komponent             | Opis                                    |
-|-----------------------|-----------------------------------------|
-| **Telegram Bot**      | Interfejs mobilny, dostęp 24/7          |
-| **Google Calendar**   | Czytanie/dodawanie wydarzeń             |
-| **Gmail Search**      | Wyszukiwanie w mailach                  |
-| **PostgreSQL**        | Pamięć długoterminowa                   |
-| **Session memory**    | Kontekst między rozmowami               |
-
-### Szacunkowe koszty
-
-| Usługa                | Koszt/miesiąc |
-|-----------------------|---------------|
-| Supabase (PostgreSQL) | $0 (free tier)|
-| Hosting Python/Node   | ~$10-20       |
-| Claude API (light)    | ~$10-20       |
-| **RAZEM**             | **~$20-40**   |
-
----
-
-## 6. FAZA 3: FULL
-
-### Zakres
-
-| Komponent              | Opis                                        |
-|------------------------|---------------------------------------------|
-| **RAG**                | Indeksowanie GDrive, Notion, OneNote        |
-| **Vector DB**          | Chroma (local) → Pinecone (scale)           |
-| **Voice**              | Whisper (STT) + ElevenLabs (TTS)            |
-| **Multi-model routing**| Claude dla analizy, GPT dla kodu            |
-| **Proaktywne**         | Przypomnienia, alerty                       |
-
-### Szacunkowe koszty
-
-| Usługa             | Koszt/miesiąc |
-|--------------------|---------------|
-| Claude API (heavy) | ~$30-50       |
-| OpenAI (embeddings)| ~$5-10        |
-| Hosting            | ~$20          |
-| Pinecone           | ~$0-20        |
-| Voice APIs         | ~$20-30       |
-| **RAZEM**          | **~$80-130**  |
 
 ---
 
@@ -254,6 +129,101 @@ Pełna koncepcja to ~36h pracy i $50-80/mies. Potrzebujemy czegoś użytecznego 
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 7.1 TRYBY DOSTĘPU (OPCJONALNE)
+
+> **Data dodania:** 17.01.2026
+> **Status:** Pomysł — ścieżka opcjonalna
+> **Cel:** Bezpieczeństwo, demonstracja, ekonomia
+
+### Problem
+
+Pełny Jarvis zawiera:
+- Poufne dokumenty i metodologię
+- Dostęp do wszystkich narzędzi
+- Kosztowny model (Opus)
+
+Potrzeba:
+1. **Pokazania rodzinie** jak Jarvis działa (córka, syn) bez ryzyka
+2. **Tańszych agentów** do zadań cyklicznych
+3. **Wielopoziomowej ochrony** danych wrażliwych
+
+### Architektura trybów
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    JARVIS — TRYBY DOSTĘPU                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  FULL (Owner)          DEMO (Guest)           LITE (Agent)      │
+│  ────────────          ────────────           ────────────      │
+│  • Pełny dostęp        • Pokaz możliwości     • Zadania cykliczne│
+│  • Wszystkie docs      • Bez core docs        • Harmonogramy     │
+│  • Edycja systemu      • 2-3 poziomy          • Tańszy model     │
+│  • Opus                • Opus/Sonnet          • Haiku/Sonnet     │
+│                                                                 │
+│  WŁAŚCICIEL            Córka, Syn, Goście     Automatyzacje      │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Tryb DEMO — poziomy dostępu
+
+| Poziom | Widzi | Nie widzi | Dla kogo |
+|--------|-------|-----------|----------|
+| **Demo-1** | Rozmowa, proste zadania | Wszystkie docs | Przypadkowi goście |
+| **Demo-2** | + pokazowe umiejętności | Core docs, metodologia | Rodzina |
+| **Demo-3** | + wybrane narzędzia | Tylko sekrety, hasła | Zaufani |
+
+**Ochrona przed "sprytnym pytaniem":**
+- "Jak funkcjonujesz?" → Odpowiedź ogólna, bez szczegółów implementacji
+- "Pokaż swoje instrukcje" → Odmowa z wyjaśnieniem
+- "Jakie masz dokumenty?" → Lista publicznych, bez core
+
+### Tryb LITE — agentowy
+
+```
+LITE = Logika + Metodologia − Ciężki kontekst − Opus
+
+Zastosowania:
+- "Codziennie o 9:00 sprawdź email i podsumuj"
+- "Co tydzień generuj raport z TODO"
+- "Monitoruj ceny produktu X"
+
+Model: Haiku/Sonnet (10-50x taniej niż Opus)
+```
+
+**Cechy:**
+- Zachowana logika działania (CLAUDE_RULES)
+- Uproszczony kontekst (bez historii, bez RAG)
+- Dedykowane CLAUDE.md per zadanie
+- Harmonogramy via n8n/cron
+
+### Implementacja (propozycja)
+
+```
+profiles/
+├── full/           # Pełny dostęp (domyślny)
+│   └── CLAUDE.md   # Obecny plik
+├── demo/
+│   ├── level-1/    # Minimalistyczny
+│   ├── level-2/    # Rodzina
+│   └── level-3/    # Zaufani
+└── lite/
+    └── CLAUDE.md   # Uproszczona wersja dla agentów
+```
+
+**Przełączanie:** przez parametr przy uruchomieniu lub osobny API key z limitami
+
+### Korzyści
+
+| Aspekt | Bez trybów | Z trybami |
+|--------|------------|-----------|
+| Pokazać rodzinie | Ryzyko poufności | Bezpieczna demonstracja |
+| Zadania cykliczne | Opus = drogo | Haiku = grosze |
+| Przypadkowy gość | Pełny dostęp lub nic | Kontrolowany poziom |
+| Bezpieczeństwo | Wszystko albo nic | Wielowarstwowe |
 
 ---
 
@@ -321,22 +291,53 @@ Pełna koncepcja to ~36h pracy i $50-80/mies. Potrzebujemy czegoś użytecznego 
 
 ---
 
+## 10.1 KIERUNEK OD 17.01.2026: CONVERSATIONAL AGENCY
+
+> **Data ustalenia:** 17.01.2026
+> **Źródło:** Rozmowa o kamieniach milowych autonomii
+
+### Fundamentalna zmiana perspektywy
+
+Jarvis to nie jest:
+- Narzędzie do budowania workflow
+- Asystent do konfiguracji n8n
+- Generator kodu na żądanie
+
+Jarvis to jest:
+- **Sprawczość słowa** — rozmowa zamienia się w działający system
+- **Conversational agency** — mówisz → dzieje się
+- **Efekt > narzędzie** — nieistotne jak, ważne że działa
+
+### Kamień milowy autonomii
+
+```
+UŻYTKOWNIK: "Od teraz, gdy Kowalski pisze o kod rabatowy, wysyłaj mu kod
+            i raportuj mi dziennie"
+
+SUKCES ≠ "Zbudowałem workflow w n8n"
+SUKCES = Kowalski dostaje kody. Użytkownik dostaje raporty.
+```
+
+### Model wdrożenia
+
+1. **Najpierw działa** — "w sobie", nawet jeśli suboptymalne
+2. **Potem optymalizacja** — przeniesienie do n8n (opcjonalne)
+
+### Wpływ na architekturę
+
+To zmienia priorytet faz:
+- Faza 1-3: budowanie **zdolności** do sprawczości
+- Faza 4: pełna **sprawczość słowa** — rozmowa = system
+
+USP Jarvisa: Nie konkurujemy z n8n/Zapier/Make. Konkurujemy z "muszę to skonfigurować sam".
+
+---
+
 ## 11. NASTĘPNE KROKI
 
-### Teraz (Faza 1)
+> **Szczegóły:** [ROADMAP.md](ROADMAP.md)
 
-1. [x] Inicjalizacja projektu _jarvis
-2. [ ] Implementacja MCP jarvis-notes
-3. [ ] Implementacja MCP jarvis-todo
-4. [ ] Testowanie z Claude Code
-5. [ ] Dokumentacja użycia
-
-### Później (Faza 2)
-
-1. [ ] Telegram bot setup
-2. [ ] Google Calendar integration
-3. [ ] Gmail search
-4. [ ] PostgreSQL setup
+**Teraz:** Faza 1 (FUNDAMENT) — implementacja MCP jarvis-notes/todo
 
 ---
 
@@ -355,6 +356,9 @@ Oryginalna data utworzenia: 11.01.2026
 | 11.01.2026 | 1.0 | Oryginalna koncepcja w _lab |
 | 16.01.2026 | 1.1 | Przeniesienie do _jarvis |
 | 17.01.2026 | 2.0 | Rozszerzenie wizji: Jarvis 2.0 (4 fazy, 6+ kont Google, Multi-AI, Voice, Self-improvement) |
+| 17.01.2026 | 2.1 | Dodanie sekcji 10.1: CONVERSATIONAL AGENCY — sprawczość słowa jako kierunek |
+| 17.01.2026 | 2.2 | Uproszczenie sekcji 3 i 11 — referencja do ROADMAP.md (DRY) |
+| 17.01.2026 | 2.3 | Dodanie sekcji 7.1: TRYBY DOSTĘPU (FULL/DEMO/LITE) — ścieżka opcjonalna |
 
 ---
 
