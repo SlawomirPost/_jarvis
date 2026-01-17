@@ -1,6 +1,6 @@
 # MEMORY.md — Pamięć między sesjami
 
-> Ostatnia aktualizacja: 17.01.2026
+> Ostatnia aktualizacja: 17.01.2026 (rozszerzenie wizji Jarvis 2.0)
 > Ten plik jest automatycznie uzupełniany przez Claude po każdej istotnej sesji.
 
 ---
@@ -18,6 +18,10 @@
 | 17.01.2026 | Centralne zasady w docs/central/ | CLAUDE_RULES.md, GIT_STRATEGY.md, STYLE_GUIDE.md |
 | 17.01.2026 | Wszystkie projekty mają sekcję 0 | Referencja do centralnych zasad |
 | 17.01.2026 | Globalny skill jarvis-notes | ~/.claude/skills/jarvis-notes/skill.md |
+| 17.01.2026 | **Jarvis 2.0** — rozszerzona wizja | 4 fazy, 6+ kont Google, Multi-AI hybrid, Voice, Self-improvement |
+| 17.01.2026 | Priorytet: Google Suite multi-account | 6+ kont, OAuth Hub, unified view |
+| 17.01.2026 | Multi-AI: podejście hybrydowe | Claude (główny) + GPT + Gemini + local models |
+| 17.01.2026 | MEMORY.md i WEEKLY_REVIEW.md → central/ | Spójność: wszystko współdzielone w central/ |
 
 ---
 
@@ -93,3 +97,5 @@ wartości:
 |------|---------------------|
 | 17.01.2026 | Inicjalizacja pliku, zasady współpracy 1-12 |
 | 17.01.2026 | Centralizacja: decyzja o docs/central/ i tagowaniu @projekt |
+| 17.01.2026 | Rozszerzenie wizji: Jarvis 2.0 (4 fazy), utworzenie ROADMAP.md |
+| 17.01.2026 | Przeniesienie MEMORY.md i WEEKLY_REVIEW.md do central/ |

@@ -1,9 +1,11 @@
-# CONCEPT: _jarvis (Centralny Asystent)
+# CONCEPT: _jarvis 2.0 (Centralny Asystent)
 
 > **Data utworzenia:** 11.01.2026 (w _lab)
 > **Data przeniesienia:** 16.01.2026
+> **Rozszerzenie wizji:** 17.01.2026
 > **Status:** Faza 1 (LITE/MVP) w realizacji
-> **Alias:** mini-Jarvis — bo od razu wiadomo o co chodzi
+> **Alias:** mini-Jarvis → Jarvis 2.0
+> **Roadmapa:** [docs/ROADMAP.md](ROADMAP.md)
 
 ---
 
@@ -59,11 +61,11 @@ Przykłady:
 
 Pełna koncepcja to ~36h pracy i $50-80/mies. Potrzebujemy czegoś użytecznego TERAZ.
 
-### Fazy rozwoju
+### Fazy rozwoju (oryginalne 3 fazy)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                         ARCHITEKTURA FAZOWA                             │
+│                         ARCHITEKTURA FAZOWA (v1)                        │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
 │  FAZA 1: LITE (MVP)      FAZA 2: CORE           FAZA 3: FULL           │
@@ -78,6 +80,43 @@ Pełna koncepcja to ~36h pracy i $50-80/mies. Potrzebujemy czegoś użytecznego 
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
+
+### Rozszerzona wizja: Jarvis 2.0 (4 fazy)
+
+> **Dodano:** 17.01.2026
+> **Szczegóły:** [docs/ROADMAP.md](ROADMAP.md)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                              JARVIS 2.0 ROADMAP                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                 │
+│  FAZA 1: MVP               FAZA 2: GOOGLE+         FAZA 3: BRAIN    FAZA 4: AI │
+│  ──────────                ───────────────         ────────────     ──────────  │
+│                                                                                 │
+│  ☐ MCP notes/todo          ☐ Google OAuth Hub      ☐ Voice I/O      ☐ Multi-AI │
+│  ☐ Centralne pliki         ☐ Gmail (6+ kont)       ☐ RAG/Vector     ☐ Auto-proj│
+│  ☐ Skill /j                ☐ Calendar multi        ☐ YT transcribe  ☐ Self-build│
+│  ☐ Memory system           ☐ Drive integration     ☐ Knowledge base ☐ Jarvis2.0│
+│  ☐ Dobre praktyki          ☐ n8n workflows         ☐ Life stories              │
+│                            ☐ Account manager                                    │
+│                                                                                 │
+│  ~2 tyg                    ~4-6 tyg                ~4-6 tyg         ongoing     │
+│  Koszt: $0                 Koszt: ~$20-50          Koszt: ~$80-150  Koszt: $150+│
+│                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Kluczowe rozszerzenia względem v1:**
+
+| Obszar | Oryginalna wizja | Jarvis 2.0 |
+|--------|------------------|------------|
+| Google | 1 konto | 6+ kont, multi-account hub |
+| AI | Tylko Claude | Hybrydowe: Claude + GPT + Gemini + local |
+| Voice | Opcjonalne | Pełna komunikacja głosowa |
+| Baza wiedzy | RAG na dokumentach | + transkrypcje YT, life stories |
+| Autonomia | Wykonawca poleceń | Samodzielna realizacja projektów |
+| Self-improvement | Brak | Jarvis buduje Jarvisa 2.0 |
 
 ---
 
@@ -266,11 +305,19 @@ Pełna koncepcja to ~36h pracy i $50-80/mies. Potrzebujemy czegoś użytecznego 
 2. "Znajdź maile o X" przeszuka Gmail
 3. Bot pamięta kontekst między rozmowami
 
-### Po Fazie 3 (FULL)
+### Po Fazie 3 (BRAIN)
 
 1. "Co pisałem w dokumencie X o temacie Y?" — RAG na GDrive
 2. Voice interface do szybkich notatek
-3. Proaktywne przypomnienia
+3. "Co mówił X w wywiadzie o Y?" — transkrypcje YT
+4. Proaktywne przypomnienia
+
+### Po Fazie 4 (AUTONOMOUS AI) — Jarvis 2.0
+
+1. "Zbuduj projekt X" — Jarvis realizuje od koncepcji do kodu
+2. Jarvis wybiera optymalny model AI do zadania
+3. Jarvis proponuje ulepszenia własnego kodu
+4. Istnieje CONCEPT dla Jarvisa 3.0 napisany przez Jarvisa
 
 ---
 
@@ -298,6 +345,16 @@ Pełna koncepcja to ~36h pracy i $50-80/mies. Potrzebujemy czegoś użytecznego 
 Koncepcja przeniesiona z: `_lab/workspace/personal-ai-assistant/CONCEPT.md`
 
 Oryginalna data utworzenia: 11.01.2026
+
+---
+
+## HISTORIA ZMIAN
+
+| Data | Wersja | Opis |
+|------|--------|------|
+| 11.01.2026 | 1.0 | Oryginalna koncepcja w _lab |
+| 16.01.2026 | 1.1 | Przeniesienie do _jarvis |
+| 17.01.2026 | 2.0 | Rozszerzenie wizji: Jarvis 2.0 (4 fazy, 6+ kont Google, Multi-AI, Voice, Self-improvement) |
 
 ---
 

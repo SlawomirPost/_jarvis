@@ -20,8 +20,8 @@
 | `docs/central/NOTES.md` | Notatki | `@_jarvis` |
 | `docs/central/JOURNAL.md` | Dziennik | `@_jarvis` |
 | `docs/central/KNOWLEDGE.md` | Baza wiedzy | `@_jarvis` |
-| `docs/MEMORY.md` | Pamięć między sesjami | — |
-| `docs/WEEKLY_REVIEW.md` | Przeglądy tygodniowe | — |
+| `docs/central/MEMORY.md` | Pamięć między sesjami | — |
+| `docs/central/WEEKLY_REVIEW.md` | Przeglądy tygodniowe | — |
 
 ---
 
@@ -177,8 +177,8 @@ Skill `jarvis-notes` jest zainstalowany globalnie i działa we **wszystkich proj
 | [docs/RUNBOOK.md](docs/RUNBOOK.md)     | Instrukcje operacyjne             |
 | [docs/NOTES.md](docs/NOTES.md)         | Notatki projektowe                |
 | [docs/JOURNAL.md](docs/JOURNAL.md)     | Dziennik projektu                 |
-| [docs/MEMORY.md](docs/MEMORY.md)       | Pamięć między sesjami (pkt 8, 12) |
-| [docs/WEEKLY_REVIEW.md](docs/WEEKLY_REVIEW.md) | Przeglądy tygodniowe (pkt 11) |
+| [docs/central/MEMORY.md](docs/central/MEMORY.md)       | Pamięć między sesjami (pkt 8, 12) |
+| [docs/central/WEEKLY_REVIEW.md](docs/central/WEEKLY_REVIEW.md) | Przeglądy tygodniowe (pkt 11) |
 
 ### Powiązanie z _meta-operating-system
 

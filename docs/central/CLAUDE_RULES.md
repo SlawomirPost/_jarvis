@@ -74,7 +74,7 @@ komunikacja:
 ### Mechanizmy operacyjne
 
 **Pamięć między sesjami:**
-- Ważne ustalenia → `_jarvis/docs/MEMORY.md`
+- Ważne ustalenia → `_jarvis/docs/central/MEMORY.md`
 - Claude MUSI zapisywać istotne decyzje po każdej sesji
 
 **Priorytetyzacja MoSCoW:**
@@ -88,7 +88,7 @@ komunikacja:
 - Zadanie > 5 min → pytanie o priorytet
 
 **Przegląd tygodniowy:**
-- Raz w tygodniu w `_jarvis/docs/WEEKLY_REVIEW.md`
+- Raz w tygodniu w `_jarvis/docs/central/WEEKLY_REVIEW.md`
 
 ---
 
@@ -155,7 +155,7 @@ Claude MOŻE, ale z oznaczeniem:
 
 Claude na starcie sesji MUSI przeczytać:
 1. `_jarvis/docs/central/CLAUDE_RULES.md` — ten plik (zasady współpracy)
-2. `_jarvis/docs/MEMORY.md` — pamięć między sesjami (decyzje, preferencje)
+2. `_jarvis/docs/central/MEMORY.md` — pamięć między sesjami (decyzje, preferencje)
 
 ---
 
@@ -163,16 +163,14 @@ Claude na starcie sesji MUSI przeczytać:
 
 Claude wie, że centralne pliki są w `_jarvis/docs/central/`:
 
-| Plik | Cel | Tagowanie |
-|------|-----|-----------|
-| `TODO.md` | Lista zadań | `@projekt` |
-| `NOTES.md` | Notatki | `@projekt` |
-| `JOURNAL.md` | Dziennik | `@projekt` |
-| `KNOWLEDGE.md` | Baza wiedzy | `@projekt` lub `@ogólne` |
-
-**Pliki specyficzne dla _jarvis** (w `_jarvis/docs/`):
-| `MEMORY.md` | Pamięć między sesjami | — |
-| `WEEKLY_REVIEW.md` | Przeglądy tygodniowe | — |
+| Plik              | Cel                    | Tagowanie             |
+|-------------------|------------------------|-----------------------|
+| `TODO.md`         | Lista zadań            | `@projekt`            |
+| `NOTES.md`        | Notatki                | `@projekt`            |
+| `JOURNAL.md`      | Dziennik               | `@projekt`            |
+| `KNOWLEDGE.md`    | Baza wiedzy            | `@projekt` lub `@ogólne` |
+| `MEMORY.md`       | Pamięć między sesjami  | —                     |
+| `WEEKLY_REVIEW.md`| Przeglądy tygodniowe   | —                     |
 
 **Przy pracy z dowolnym projektem:**
 - TODO dodawaj do `_jarvis/docs/central/TODO.md` z tagiem `@nazwa-projektu`
@@ -202,6 +200,7 @@ Jeśli brak uwag: pomiń sekcję.
 |------|--------|------|
 | 17.01.2026 | 1.0 | Utworzenie centralnego pliku zasad |
 | 17.01.2026 | 1.1 | Dodanie sekcji 8: pliki do wczytania na starcie (MEMORY.md) |
+| 17.01.2026 | 1.2 | Przeniesienie MEMORY.md i WEEKLY_REVIEW.md do central/ |
 
 ---
 
