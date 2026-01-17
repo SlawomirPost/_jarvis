@@ -73,21 +73,23 @@ Format: `SKILL.md` z YAML metadata + instrukcje Markdown.
 
 ## @ogólne — Infrastruktura VPS (Contabo)
 
-> Stan na 16.01.2026
+> Źródło: emaile od Contabo, stan na 16.01.2026
 
-| Adres IP | Data uruchomienia | Lokalizacja | Status |
-|----------|-------------------|-------------|--------|
-| 38.242.150.45 | Przed 2025 | Hub Europe | ✅ Aktywny |
-| 62.146.233.104 | 10.07.2024 | Singapur | ✅ Aktywny |
-| 5.104.80.58 | 09.07.2024 | Tokio | ✅ Aktywny |
-| 62.146.232.196 | 05.07.2024 | Singapur 3 | ✅ Aktywny |
-| 184.174.37.142 | 13.03.2023 | Dusseldorf | ✅ Aktywny |
-| 207.244.238.51 | 20.06.2022 | St. Louis | ✅ Aktywny |
-| 207.244.251.85 | 03.07.2020 | St. Louis | ✅ Aktywny |
-| 95.111.231.135 | 03.07.2020 | Europa (S) | ✅ Aktywny |
-| 194.61.31.89 | Lipiec 2024 | Mumbaj | ⚠️ Problemy |
+| Adres IP | Data uruchomienia | Lokalizacja | Zdarzenia / Migracje | Status |
+|----------|-------------------|-------------|----------------------|--------|
+| 38.242.150.45 | Przed 2025 | Hub Europe | 31.07.2025: Migracja z Dusseldorf | ✅ Aktywny |
+| 62.146.233.104 | 10.07.2024 | Singapur | — | ✅ Aktywny |
+| 5.104.80.58 | 09.07.2024 | Tokio (Japonia) | — | ✅ Aktywny |
+| 62.146.232.196 | 05.07.2024 | Singapur 3 | — | ✅ Aktywny |
+| 184.174.37.142 | 13.03.2023 | Dusseldorf (Niemcy) | Brak info o migracji | ✅ Aktywny |
+| 207.244.238.51 | 20.06.2022 | St. Louis (USA) | — | ✅ Aktywny |
+| 207.244.251.85 | 03.07.2020 | St. Louis (USA) | — | ✅ Aktywny |
+| 95.111.231.135 | 03.07.2020 | Europa (S) | — | ✅ Aktywny |
+| 194.61.31.89 | Lipiec 2024 | Mumbaj (Indie) | Transfer z Singapuru | ⚠️ Problemy z OS |
+| 194.163.155.255 | 12.07.2024 | — | 14.04.2025: Migracja do Hub Europe | ❌ Utracony |
+| 144.91.118.44 | 10.08.2025 | — | Uruchomiony w Hub Europe | ❌ Utracony |
 
-**Podsumowanie:** 8 aktywnych, 1 problematyczny
+**Podsumowanie:** 8 aktywnych, 1 problematyczny, 2 utracone
 
 ---
 
