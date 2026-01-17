@@ -151,7 +151,15 @@ Claude MOŻE, ale z oznaczeniem:
 
 ---
 
-## 8. CENTRALNE PLIKI
+## 8. PLIKI DO WCZYTANIA NA STARCIE SESJI
+
+Claude na starcie sesji MUSI przeczytać:
+1. `_jarvis/docs/central/CLAUDE_RULES.md` — ten plik (zasady współpracy)
+2. `_jarvis/docs/MEMORY.md` — pamięć między sesjami (decyzje, preferencje)
+
+---
+
+## 9. CENTRALNE PLIKI
 
 Claude wie, że centralne pliki są w `_jarvis/docs/central/`:
 
@@ -173,7 +181,7 @@ Claude wie, że centralne pliki są w `_jarvis/docs/central/`:
 
 ---
 
-## 9. UWAGI AI
+## 10. UWAGI AI
 
 > Claude wypełnia przy każdej odpowiedzi, jeśli dotyczy:
 
@@ -193,6 +201,7 @@ Jeśli brak uwag: pomiń sekcję.
 | Data | Wersja | Opis |
 |------|--------|------|
 | 17.01.2026 | 1.0 | Utworzenie centralnego pliku zasad |
+| 17.01.2026 | 1.1 | Dodanie sekcji 8: pliki do wczytania na starcie (MEMORY.md) |
 
 ---
 
