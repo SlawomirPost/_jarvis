@@ -172,6 +172,7 @@ Claude wie, że centralne pliki są w `_jarvis/docs/central/`:
 | `MEMORY.md`       | Pamięć między sesjami  | —                     |
 | `WEEKLY_REVIEW.md`| Przeglądy tygodniowe   | —                     |
 | `RISK_REGISTER.md`| Rejestr ryzyk          | `@projekt` lub `@ogólne` |
+| `BEST_PRACTICES.md`| Katalog dobrych praktyk | `@best-practice` + domena |
 
 **Przy pracy z dowolnym projektem:**
 - TODO dodawaj do `_jarvis/docs/central/TODO.md` z tagiem `@nazwa-projektu`
@@ -301,6 +302,34 @@ Co jest zagrożone? (czas, zakres, jakość)
 
 ---
 
+## 13. DOBRE PRAKTYKI (Best Practices)
+
+> Katalog sprawdzonych wzorców w BEST_PRACTICES.md
+
+### Kiedy sprawdzać
+
+| Sytuacja | Sekcja do sprawdzenia |
+|----------|----------------------|
+| Przed pisaniem kodu | 5. Kodowanie, 6. Testowanie |
+| Przy nowym projekcie | 2. Koncepcje, 3. Prowadzenie |
+| Przy tworzeniu MCP/integracji | 1. Architektura, 11. Integracje |
+| Przy pisaniu promptu | 10. Prompt Engineering |
+| Przy tworzeniu UI | 7. UX |
+| Przy projektowaniu systemu | 8. Skalowalność, 9. Bezpieczeństwo |
+
+### Triggery
+
+- Automatyczne: Claude sprawdza przed rozpoczęciem pracy w danej domenie
+- Ręczne: "best practice", "dobra praktyka", "jak powinno być"
+
+### Aktualizacja praktyk
+
+- Gdy coś się sprawdza → dodaj do BEST_PRACTICES.md
+- Gdy coś nie działa → przenieś do PITFALLS/
+- Szczegóły praktyk → KNOWLEDGE.md z tagiem `@best-practice`
+
+---
+
 ## HISTORIA ZMIAN
 
 | Data | Wersja | Opis |
@@ -310,6 +339,7 @@ Co jest zagrożone? (czas, zakres, jakość)
 | 17.01.2026 | 1.2 | Przeniesienie MEMORY.md i WEEKLY_REVIEW.md do central/ |
 | 17.01.2026 | 1.3 | Dodanie sekcji 10: Destylacja wiedzy (Distill) |
 | 17.01.2026 | 1.4 | Dodanie sekcji 12: Exception Report (testowo, ADR-003) |
+| 17.01.2026 | 1.5 | Dodanie sekcji 13: Dobre praktyki (BEST_PRACTICES.md) |
 
 ---
 

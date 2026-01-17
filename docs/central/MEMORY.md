@@ -25,6 +25,7 @@
 | 17.01.2026 | Mechanizm Distill wdrożony | Wyciąganie esencji do KNOWLEDGE.md po sesji i na żądanie |
 | 17.01.2026 | Highlight + Exception Report (testowo) | ADR-003, rewaluacja po 4 tygodniach |
 | 17.01.2026 | Centralny RISK_REGISTER.md | Prince2 Agile, tagowanie @projekt/@ogólne |
+| 17.01.2026 | BEST_PRACTICES.md wdrożony | 12 domen: architektura, koncepcje, projekty, dokumentacja, kodowanie, testowanie, UX, skalowalność, bezpieczeństwo, prompts, API, dane |
 
 ---
 
@@ -104,3 +105,4 @@ wartości:
 | 17.01.2026 | Przeniesienie MEMORY.md i WEEKLY_REVIEW.md do central/ |
 | 17.01.2026 | Wdrożenie mechanizmu Distill (sekcja 10 w CLAUDE_RULES.md) |
 | 17.01.2026 | Testowe wdrożenie Highlight Report i Exception Report (ADR-003) |
+| 17.01.2026 | Wdrożenie BEST_PRACTICES.md (12 domen dobrych praktyk) |
