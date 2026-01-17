@@ -5,24 +5,23 @@
 
 ---
 
-## 0. DATOWNIK
+## 0. CENTRALNE ZASADY
 
-<datownik>
-**Zasada:** Claude oznacza datą każdą istotną odpowiedź, aby użytkownik znał chronologię konwersacji.
+> **Claude na starcie sesji MUSI przeczytać:**
+> - `C:\WORK\projects\_jarvis\docs\central\CLAUDE_RULES.md` — datownik, profil, rola, hierarchia, zabronione
+> - `C:\WORK\projects\_jarvis\docs\central\GIT_STRATEGY.md` — format commitów, strategia push
+> - `C:\WORK\projects\_jarvis\docs\central\STYLE_GUIDE.md` — formatowanie dokumentów
 
-- **Pierwsza odpowiedź w rozmowie:** Na początku dodaj linię:
-  `📅 Data sesji: DD.MM.YYYY`
+### Centralne pliki z tagowaniem
 
-- **Kolejne odpowiedzi tego samego dnia:** Nie dodawaj datownika.
-
-- **Jeśli data się zmieniła** (nowy dzień) lub **minęło więcej niż 4 godziny:**
-  `📅 Kontynuacja: DD.MM.YYYY`
-
-- **Przy generowaniu kodu/artefaktów:** Dodaj w komentarzu:
-  `# Wygenerowano: DD.MM.YYYY | Wersja: X.Y`
-
-- **Przy commitach:** Data w formacie ISO w opisie jeśli istotne.
-</datownik>
+| Plik | Cel | Tag dla tego projektu |
+|------|-----|-----------------------|
+| `docs/central/TODO.md` | Lista zadań | `@_jarvis` |
+| `docs/central/NOTES.md` | Notatki | `@_jarvis` |
+| `docs/central/JOURNAL.md` | Dziennik | `@_jarvis` |
+| `docs/central/KNOWLEDGE.md` | Baza wiedzy | `@_jarvis` |
+| `docs/MEMORY.md` | Pamięć między sesjami | — |
+| `docs/WEEKLY_REVIEW.md` | Przeglądy tygodniowe | — |
 
 ---
 
@@ -40,44 +39,7 @@
 
 ---
 
-## 2. PROFIL UŻYTKOWNIKA
-
-```yaml
-poziom_techniczny: "nie-programista"
-preferowany_styl: "krok po kroku z komentarzem 'co to robi'"
-język: "polski"
-preferowany_format:
-  - instrukcje numerowane
-  - komendy do skopiowania w blokach kodu
-  - unikaj żargonu lub wyjaśniaj
-komunikacja:
-  - zwięzła, rzeczowa
-  - bez zbędnej "ceremonii"
-  - konkretne przykłady zamiast abstrakcji
-```
-
----
-
-## 3. ROLA CLAUDE
-
-### Claude JEST:
-- **Architektem** — projektuje rozwiązania, proponuje narzędzia
-- **Mentorem** — wyjaśnia decyzje ("dlaczego tak", "na co uważać")
-- **Wykonawcą** — generuje kod, konfiguracje, dokumentację
-- **Weryfikatorem** — sprawdza poprawność, wskazuje ryzyka
-
-### Claude NIE JEST:
-- Systemem produkcyjnym (nie uruchamia kodu na serwerach użytkownika)
-- Jedynym źródłem prawdy (źródło = repo + dokumentacja)
-
-### Źródło prawdy:
-1. Repozytoria Git
-2. Oficjalna dokumentacja narzędzi
-3. Pliki projektu (CONCEPT.md, DECISIONS.md)
-
----
-
-## 4. WERSJE NARZĘDZI
+## 2. WERSJE NARZĘDZI
 
 > **WAŻNE:** Claude generuje kod zgodny z zadeklarowanymi wersjami.
 
@@ -93,7 +55,7 @@ komunikacja:
 
 ---
 
-## 5. ARCHITEKTURA FAZOWA
+## 3. ARCHITEKTURA FAZOWA
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -123,7 +85,7 @@ komunikacja:
 
 ---
 
-## 6. MVP — FAZA 1 (LITE)
+## 4. MVP — FAZA 1 (LITE)
 
 ### Zakres MVP
 
@@ -152,20 +114,20 @@ komunikacja:
 
 ---
 
-## 7. PROCES PRACY
+## 5. PROCES PRACY
 
-### 7.1 ETAP: CONCEPT (koncepcja)
+### 5.1 ETAP: CONCEPT (koncepcja)
 > Pełna koncepcja w [docs/CONCEPT.md](docs/CONCEPT.md)
 
-### 7.2 ETAP: PLAN
+### 5.2 ETAP: PLAN
 > **Kiedy:** Po zatwierdzeniu CONCEPT.
 > **Format:** Szczegółowy plan z krokami w docs/PLAN.md
 
-### 7.3 ETAP: WYKONANIE
+### 5.3 ETAP: WYKONANIE
 > **Kiedy:** Po zatwierdzeniu PLAN.
 > **Zasada:** Iteracyjnie — buduj i używaj jednocześnie
 
-### 7.4 PĘTLA WERYFIKACJI
+### 5.4 PĘTLA WERYFIKACJI
 ```
 CLAUDE GENERUJE → UŻYTKOWNIK TESTUJE → Działa?
     TAK → COMMIT + następny krok
@@ -174,76 +136,7 @@ CLAUDE GENERUJE → UŻYTKOWNIK TESTUJE → Działa?
 
 ---
 
-## 8. STRATEGIA GIT
-
-```yaml
-git_strategy: "MANUAL-PUSH"
-push_policy: "na żądanie użytkownika"
-branch_strategy: "main + feature branches"
-```
-
-**Workflow:**
-```bash
-git add .
-git commit -m "[kategoria] opis
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
-# ← STOP: push tylko na żądanie użytkownika
-```
-
-**Kategorie commitów:**
-- `feat` - nowa funkcjonalność
-- `fix` - naprawa błędu
-- `docs` - dokumentacja
-- `refactor` - zmiana bez zmiany funkcji
-- `test` - testy
-- `chore` - maintenance
-
----
-
-## 9. HIERARCHIA ZASAD
-
-```
-1. BEZPIECZEŃSTWO I PRAWO
-   └── Nie publikuj sekretów, API keys, danych osobowych
-
-2. INSTRUKCJE UŻYTKOWNIKA DLA BIEŻĄCEGO ZADANIA
-   └── Jawne polecenia w aktualnej rozmowie
-
-3. ZGODNOŚĆ Z DOKUMENTACJĄ NARZĘDZI
-   └── Kod musi być zgodny z zadeklarowanymi wersjami
-
-4. ZASADY Z TEGO PLIKU (CLAUDE.md)
-   └── Proces pracy, format odpowiedzi
-
-5. DOMYŚLNE ZACHOWANIA CLAUDE
-   └── Najniższy priorytet
-```
-
----
-
-## 10. ABSOLUTNIE ZABRONIONE
-
-<forbidden>
-Claude POD ŻADNYM POZOREM nie może:
-
-### Bezpieczeństwo
-- [ ] Wklejać sekretów, API keys, haseł do kodu
-- [ ] Publikować danych osobowych (PII)
-
-### Wykonanie
-- [ ] Wykonywać destrukcyjnych operacji bez potwierdzenia
-- [ ] Przechodzić do WYKONANIA bez zatwierdzonego PLANU
-- [ ] Zakładać rzeczy, których nie wie
-
-### Jakość
-- [ ] Generować nieistniejących funkcji/parametrów
-- [ ] Używać przestarzałej składni bez sprawdzenia
-</forbidden>
-
----
-
-## 11. KOMENDY
+## 6. KOMENDY
 
 | Komenda      | Działanie                                          |
 |--------------|----------------------------------------------------|
@@ -257,7 +150,7 @@ Claude POD ŻADNYM POZOREM nie może:
 
 ---
 
-## 12. ZARZĄDZANIE WIEDZĄ
+## 7. ZARZĄDZANIE WIEDZĄ
 
 ### Powiązane dokumenty
 
@@ -268,6 +161,8 @@ Claude POD ŻADNYM POZOREM nie może:
 | [docs/RUNBOOK.md](docs/RUNBOOK.md)     | Instrukcje operacyjne             |
 | [docs/NOTES.md](docs/NOTES.md)         | Notatki projektowe                |
 | [docs/JOURNAL.md](docs/JOURNAL.md)     | Dziennik projektu                 |
+| [docs/MEMORY.md](docs/MEMORY.md)       | Pamięć między sesjami (pkt 8, 12) |
+| [docs/WEEKLY_REVIEW.md](docs/WEEKLY_REVIEW.md) | Przeglądy tygodniowe (pkt 11) |
 
 ### Powiązanie z _meta-operating-system
 
@@ -288,7 +183,7 @@ _jarvis jest narzędziem pomocniczym dla całego portfolio projektów:
 
 ---
 
-## 13. ŹRÓDŁA I DOKUMENTACJA
+## 8. ŹRÓDŁA I DOKUMENTACJA
 
 | Zasób                | Link                                         |
 |----------------------|----------------------------------------------|
@@ -300,7 +195,7 @@ _jarvis jest narzędziem pomocniczym dla całego portfolio projektów:
 
 ---
 
-## 14. ROADMAPA
+## 9. ROADMAPA
 
 ### Faza 1: LITE (MVP) — TERAZ
 - [ ] Struktura projektu ✅
@@ -323,7 +218,7 @@ _jarvis jest narzędziem pomocniczym dla całego portfolio projektów:
 
 ---
 
-## 15. UWAGI AI
+## 10. UWAGI AI
 
 > Sekcja wypełniana przez Claude przy każdej odpowiedzi, jeśli dotyczy:
 
@@ -334,10 +229,6 @@ _jarvis jest narzędziem pomocniczym dla całego portfolio projektów:
 - Do wyjaśnienia: [pytania do użytkownika]
 ```
 
-### Zasady formatowania
-
-- **Formatowanie:** stosuj zasady z [_meta/docs/STYLE_GUIDE.md](../_meta-operating-system/docs/STYLE_GUIDE.md)
-
 ---
 
 ## HISTORIA ZMIAN
@@ -346,6 +237,9 @@ _jarvis jest narzędziem pomocniczym dla całego portfolio projektów:
 |------------|--------|-------------------------------------------------------|
 | 16.01.2026 | 1.0    | Inicjalizacja projektu _jarvis                        |
 | 16.01.2026 | 1.1    | Dodanie referencji do WORKFLOW_LIFECYCLE.md           |
+| 17.01.2026 | 1.2    | Dodanie sekcji ZASADY WSPÓŁPRACY (punkty 1-12)        |
+| 17.01.2026 | 1.2    | Utworzenie MEMORY.md i WEEKLY_REVIEW.md               |
+| 17.01.2026 | 2.0    | Centralizacja: sekcja 0 z referencjami do central/    |
 
 ---
 
