@@ -17,6 +17,7 @@
 | 17.01.2026 | Centralizacja w _jarvis | TODO, NOTES, JOURNAL, KNOWLEDGE z tagowaniem @projekt |
 | 17.01.2026 | Centralne zasady w docs/central/ | CLAUDE_RULES.md, GIT_STRATEGY.md, STYLE_GUIDE.md |
 | 17.01.2026 | Wszystkie projekty mają sekcję 0 | Referencja do centralnych zasad |
+| 17.01.2026 | Globalny skill jarvis-notes | ~/.claude/skills/jarvis-notes/skill.md |
 
 ---
 

@@ -27,6 +27,7 @@
 
 ### Pomysły
 
+- Skill jarvis-notes działa globalnie od 17.01.2026
 - Integracja z Google Calendar (Faza 2)
 - Telegram bot jako interfejs mobilny (Faza 2)
 - RAG na dokumentach (Faza 3)

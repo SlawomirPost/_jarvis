@@ -148,6 +148,22 @@ CLAUDE GENERUJE → UŻYTKOWNIK TESTUJE → Działa?
 | `/j todo`    | Szybkie TODO przez Jarvisa                         |
 | `/j find`    | Szukaj w bazie wiedzy                              |
 
+### Globalny skill jarvis-notes
+
+Skill `jarvis-notes` jest zainstalowany globalnie i działa we **wszystkich projektach**:
+
+```
+~/.claude/skills/jarvis-notes/skill.md
+```
+
+**Aktywacja:** Claude automatycznie używa skilla gdy słyszy:
+- "zanotuj:", "zapisz:", "notatka:"
+- "do zrobienia:", "TODO:", "task:"
+- "co wiesz o...", "znajdź...", "przypomnij..."
+- "refleksja:", "przemyślenie:"
+
+**Działanie:** Wszystkie notatki trafiają do centralnych plików z tagiem `@projekt`.
+
 ---
 
 ## 7. ZARZĄDZANIE WIEDZĄ
